@@ -1,0 +1,1 @@
+This is a simple node script reading the values i get from an arduino shield on a raspberrypi.
