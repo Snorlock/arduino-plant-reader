@@ -1,0 +1,29 @@
+{
+  "name": "arduino-plant-reader",
+  "version": "0.0.2",
+  "description": "Simple script for reading values and persisting",
+  "main": "serialReader.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Snorlock/arduino-plant-reader.git"
+  },
+  "keywords": [
+    "script",
+    "arduino",
+    "serialport"
+  ],
+  "author": "Snorrre Lothar von Gohren Edwin <snorre.edwin@gmail.com> (https://github.com/Snorlock)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Snorlock/arduino-plant-reader/issues"
+  },
+  "homepage": "https://github.com/Snorlock/arduino-plant-reader",
+  "dependencies": {
+    "firebase": "^2.0.6",
+    "mongo-abstraction": "0.0.2",
+    "serialport": "^1.4.9"
+  }
+}
