@@ -3,14 +3,14 @@ var serialPortCon = serialPort.SerialPort;
 var Firebase = require('firebase');
 var mongoClient = require('mongo-abstraction');
 var dataRef = new Firebase('https://plantdata.firebaseio.com/');
-
 var lastMariaValue = 0;
 var lastBobValue = 0;
-
+var reader = this;
 var mongoUrl = "mongodb://snorre:snorre@ds027491.mongolab.com:27491/heroku_app32610102"
 mongoClient.connect(mongoUrl, function(connected) {
 	if(connected){
-		startInterval();
+		reader.startInterval();
+		reader.open(reader.createConnection());
 	}
 })
 
