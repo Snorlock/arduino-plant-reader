@@ -34,8 +34,9 @@ exports.open = function (connection) {
 				var now = new Date();
 				var value = {};
 				if(isDataJson(data)) {
-					var value = JSON.parse(data);	
+					value = JSON.parse(data);	
 				}
+				console.log(value);
 				
 				value.created = now;
 				if(value.watervalue) {
@@ -62,6 +63,15 @@ exports.open = function (connection) {
 				}
 				value = null;
 			});
+
+			setInterval(function() {
+				connection.write("1", function(err, res) {
+					console.log("ask for data");
+					if(err) {
+						console.log("err was "+err);
+					}
+				})
+			}, 10000);
 
 			dataRef.child('switch').on('value', function(data) {
 				console.log(data.val());
