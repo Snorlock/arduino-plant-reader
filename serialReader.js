@@ -66,14 +66,14 @@ exports.open = function (connection) {
 			dataRef.child('switch').on('value', function(data) {
 				console.log(data.val());
 				if(data.val() === "on") {
-					connection.write("on", function(err, res){
+					connection.write("2", function(err, res){
 						console.log("WRITE ON");
 						console.log(err);
 						console.log(res);
 					})					
 				}
 				else if(data.val() === "off") {
-					connection.write("off", function(err, res){
+					connection.write("3", function(err, res){
 						console.log("WRITE OFF");
 						console.log(err);
 						console.log(res);
