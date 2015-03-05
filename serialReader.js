@@ -32,7 +32,11 @@ exports.open = function (connection) {
 			connection.on("data", function(data) {
 				console.log(data);
 				var now = new Date();
-				var value = JSON.parse(data);
+				var value = {};
+				if(isDataJson(data)) {
+					var value = JSON.parse(data);	
+				}
+				
 				value.created = now;
 				if(value.watervalue) {
 					value.plant = "bob"
@@ -84,6 +88,15 @@ exports.open = function (connection) {
 
 exports.startInterval = function() {
 	setInterval(persistValue, 600000);
+}
+
+function isDataJson(data) {
+	try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
 }
 
 function persistValue() {
