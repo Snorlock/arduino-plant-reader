@@ -36,7 +36,6 @@ exports.open = function (connection) {
 				if(isDataJson(data)) {
 					value = JSON.parse(data);	
 				}
-				console.log("JSON parsed value "+value);
 				
 				value.created = now;
 				if(value.watervalue) {
@@ -77,16 +76,18 @@ exports.open = function (connection) {
 				console.log(data.val());
 				if(data.val() === "on") {
 					connection.write("2", function(err, res){
-						console.log("WRITE ON");
-						console.log(err);
-						console.log(res);
+						console.log("ON");
+						if(err){
+							console.log("ERROR ON "+err);
+						}
 					})					
 				}
 				else if(data.val() === "off") {
 					connection.write("3", function(err, res){
-						console.log("WRITE OFF");
-						console.log(err);
-						console.log(res);
+						console.log("OFF");
+						if(err){
+							console.log("ERROR OFF "+err);
+						}
 					})	
 				}
 			})
