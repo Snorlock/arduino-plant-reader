@@ -102,7 +102,7 @@ exports.startInterval = function() {
 
 function isDataJson(data) {
 	try {
-        JSON.parse(str);
+        JSON.parse(data);
     } catch (e) {
         return false;
     }
