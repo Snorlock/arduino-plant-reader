@@ -30,6 +30,7 @@ exports.open = function (connection) {
 		} else {
 			console.log("open");
 			connection.on("data", function(data) {
+				console.log(data);
 				var now = new Date();
 				var value = JSON.parse(data);
 				value.created = now;
