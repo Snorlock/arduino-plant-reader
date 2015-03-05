@@ -57,6 +57,25 @@ exports.open = function (connection) {
 				}
 				value = null;
 			});
+
+			dataRef.child('switch').on('value', function(data) {
+				if(data.val === "on") {
+					connection.write("on", function(err, res){
+						console.log("WRITE ON");
+						console.log(err);
+						console.log(res);
+					})					
+				}
+				else if(data.val === "off") {
+					connection.write("off", function(err, res){
+						console.log("WRITE OFF");
+						console.log(err);
+						console.log(res);
+					})	
+				}
+			})
+
+
 		}
 	});
 }
