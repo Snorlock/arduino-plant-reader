@@ -30,13 +30,13 @@ exports.open = function (connection) {
 		} else {
 			console.log("open");
 			connection.on("data", function(data) {
-				console.log(data);
+				console.log("Data recieved "+data);
 				var now = new Date();
 				var value = {};
 				if(isDataJson(data)) {
 					value = JSON.parse(data);	
 				}
-				console.log(value);
+				console.log("JSON parsed value "+value);
 				
 				value.created = now;
 				if(value.watervalue) {
